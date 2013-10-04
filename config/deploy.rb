@@ -23,17 +23,13 @@ set :use_sudo,  false
 # config if needed
 ################################################################################
 namespace :configure do
-  task :delete_database_config, :roles => :app do
-    run "rm #{current_release}/config/database.yml"
-  end
-
   task :set_config_link, :roles => :app do
     run "ln -s #{shared_path}/config/* #{current_release}/config/"
   end
 
   task :set_uploads_link, :roles => :app do
-    run "rm -rf #{current_release}/public/uploads"
-    run "ln -s #{shared_path}/uploads #{current_release}/public/uploads"
+    run "rm -rf #{current_release}/files"
+    run "ln -s #{shared_path}/files #{current_release}/files"
   end
 
   task :set_socket_symlink, :roles => :app do
@@ -85,11 +81,10 @@ end
 
 
 # Run migrations after updating code
-before 'deploy:restart', 'deploy:migrate'
+# before 'deploy:restart', 'deploy:migrate'
 
 # Tasks to do before asset compiling
-before 'deploy:assets:precompile' do
-  configure.delete_database_config
+before 'bundle:install' do
   configure.set_config_link
   configure.set_uploads_link
   configure.set_socket_symlink
