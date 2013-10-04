@@ -75,6 +75,10 @@ end
 group :development do
   gem "rdoc", ">= 2.4.2"
   gem "yard"
+
+  # Deployment
+  gem 'capistrano',         '~> 2.15.5'
+  gem 'capistrano-unicorn', '~> 0.1.9'
 end
 
 group :test do
