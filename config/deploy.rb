@@ -36,6 +36,11 @@ namespace :configure do
     run "rm -rf #{current_release}/tmp/sockets"
     run "ln -s #{shared_path}/sockets #{current_release}/tmp/sockets"
   end
+
+  task :set_plugins_symlink, :roles => :app do
+    run "rm -rf #{current_release}/plugins"
+    run "ln -s #{shared_path}/plugins #{current_release}/plugins"
+  end
 end
 
 
@@ -88,6 +93,7 @@ before 'bundle:install' do
   configure.set_config_link
   configure.set_uploads_link
   configure.set_socket_symlink
+  configure.set_plugins_symlink
 end
 
 # After restart hooks
