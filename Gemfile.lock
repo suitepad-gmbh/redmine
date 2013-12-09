@@ -69,7 +69,6 @@ GEM
     mocha (0.14.0)
       metaclass (~> 0.0.1)
     multi_json (1.8.2)
-    mysql2 (0.3.14)
     net-ldap (0.3.1)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -80,6 +79,7 @@ GEM
       net-ssh (>= 2.6.5)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    pg (0.17.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -149,7 +149,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-jdbc-adapter (~> 1.2.6)
-  activerecord-jdbcmysql-adapter
+  activerecord-jdbcpostgresql-adapter
   builder (= 3.0.0)
   capistrano (~> 2.15.5)
   capistrano-unicorn (~> 0.1.9)
@@ -160,8 +160,8 @@ DEPENDENCIES
   i18n (~> 0.6.0)
   jquery-rails (~> 2.0.2)
   mocha (>= 0.14)
-  mysql2 (~> 0.3.11)
   net-ldap (~> 0.3.1)
+  pg (>= 0.11.0)
   rack-openid
   rails (= 3.2.13)
   rdoc (>= 2.4.2)
