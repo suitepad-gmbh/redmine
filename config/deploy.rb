@@ -13,7 +13,7 @@ set :ssh_options, { :port => 2899 } # Use 2899 port instead of default 22
 set :branch,      'master'
 
 # Server settings
-server 'app-server-05.suitepad.de', :app, :web, :db, :primary => true
+server 'app-server-05.int.suitepad.de', :app, :web, :db, :primary => true
 set(:deploy_to) { "/home/suitepad/web/#{application}" }
 set :use_sudo,  false
 
